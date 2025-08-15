@@ -1,0 +1,58 @@
+Access your EKS cluster locally or remotely
+
+Step 1: Update kubectl Config for EKS
+Run this command to configure kubectl to access your EKS cluster. Replace <CLUSTER_NAME> and <REGION> with your EKS cluster's name and region (e.g., education-eks-cLVxrZY2 and us-east-1):
+
+aws eks update-kubeconfig --name <CLUSTER_NAME> --region <REGION>
+aws eks update-kubeconfig --name education-eks-cLVxrZY2 --region us-east-2
+
+Step 2: Verify Contexts
+Check your available Kubernetes contexts:
+kubectl config get-contexts
+
+You should see your EKS cluster in the list (e.g., arn:aws:eks:us-east-1:539247485586:cluster/education-eks-cLVxrZY2).
+
+
+Step 3: Switch to the EKS Context
+Set the EKS cluster as the active context. Replace <EKS_CONTEXT_NAME> with the full ARN of your cluster from Step 2:
+
+kubectl config use-context <EKS_CONTEXT_NAME>
+kubectl config use-context arn:aws:eks:us-east-2:539247485586:cluster/education-eks-cLVxrZY2
+
+Step 4: Test Access to the Cluster
+Verify connectivity to your EKS cluster:
+
+kubectl get nodes
+
+
+2. Access the Cluster Locally on Ubuntu
+
+Ensure the AWS CLI is installed and configured on your local Ubuntu server:
+
+aws configure
+
+Provide your AWS Access Key, Secret Access Key, region, and output format.
+
+After running the update-kubeconfig command (as in step 1), test connectivity to the cluster:
+
+kubectl get nodes
+
+3. Access the Cluster from an AWS EC2 Instance
+On your EC2 instance, ensure both kubectl and the AWS CLI are installed. If not, you can install them with:
+
+sudo apt update
+sudo apt install -y awscli kubectl
+
+Configure the AWS CLI on the EC2 instance:
+
+aws configure
+
+Use IAM credentials associated with your EC2 instance or attach an IAM role with necessary EKS permissions.
+
+Update the kubeconfig file on the EC2 instance:
+
+aws eks update-kubeconfig --region <region> --name <cluster-name>
+
+Test the connection:
+
+kubectl get nodes
