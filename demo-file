@@ -3,7 +3,12 @@ terrafrom {
     version = " 3.33.0"
     }
 
-resource "azure_resource_group" {
+resource "azure_resource_group" "demo" {
   name = "my-resource-group"
     region = "WEST US'
+}
+
+resource "azure_resource_group-2" "demo-2" {
+  name = "my-resource-group-2"
+  region = "WEST US"
 }
