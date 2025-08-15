@@ -12,3 +12,8 @@ resource "azure_resource_group-2" "demo-2" {
   name = "my-resource-group-2"
   region = "WEST US"
 }
+
+resource "azure_resource_group_3" "demo-3" {
+  name = "my-resource-group-3"
+  region = "WEST US"
+}
