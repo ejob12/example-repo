@@ -1,0 +1,9 @@
+terrafrom {
+  provider "azurerm"
+    version = " 3.33.0"
+    }
+
+resource "azure_resource_group" {
+  name = "my-resource-group"
+    region = "WEST US'
+}
