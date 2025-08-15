@@ -1,0 +1,19 @@
+ANSIBLE ROLES: 
+
+HANDS ON: 
+
+create an role called sonarqube
+
+ansible-galaxy role init sonarqube 
+
+create ansible role for apache-maven
+
+ansible-galaxy role init apache-maven
+
+ ANSIBLE DRY RUN COMMAND: 
+   --check
+This command is used to run a playbook without actually executing the taks
+
+ansible-playbook demo.yaml -i inventory --check. 
+
+Testing the playbook: especially when working in production environment. 
